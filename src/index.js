@@ -7,7 +7,8 @@ sequelize.sync({ force: false }).then(() => console.log("db connected..."))
 class Server {
   constructor() {
     this.app = express();
-    this.port = process.env.PORT;
+    this.port = process.env.APP_PORT;
+    this.host = process.env.HOST;
     this.paths = {
       usersApi: "/api/v1/users",
       sessionsApi: "/api/v1/sessions",
@@ -29,11 +30,14 @@ class Server {
     this.app.use(this.paths.sessionsApi, require("./session/session.route"));
     this.app.use(this.paths.moviesApi, require("./movie/movie.route"));
     this.app.use(this.paths.actorsApi, require("./actor/actor.route"));
+    this.app.get('/', (req, res) => {
+      res.send('Works');
+    });
   }
 
   listen() {
-    this.app.listen(this.port, () => {
-      console.log("Server running on port: ", this.port);
+    this.app.listen(this.port,() => {
+      console.log(`Server running on port ${this.port}`);
     });
   }
 }
