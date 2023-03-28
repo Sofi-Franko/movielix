@@ -1,0 +1,13 @@
+node_modules/
+.idea/
+*.xml
+client/build/
+
+package-lock.json
+client/package-lock.json
+
+client/yarn.lock
+
+.env
+
+*.idea
