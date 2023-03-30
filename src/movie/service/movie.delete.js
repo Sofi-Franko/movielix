@@ -1,4 +1,4 @@
-const {Movie} = require("../../models");
+const {Movie} = require("../../db");
 
 module.exports = async (req, res) => {
   const {id} = req.params;

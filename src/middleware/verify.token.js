@@ -1,5 +1,5 @@
 const JwtUtil = require("../utils/jwt.util")
-const {User} = require("../models");
+const {User} = require("../db");
 
 const verifyToken = async (req, res, next) => {
     const token = req.headers.authorization;

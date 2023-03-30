@@ -1,5 +1,5 @@
 const {response} = require("express");
-const {User} = require("../../models");
+const {User} = require("../../db");
 const PasswordUtil = require("../../utils/password.util");
 const JwtUtil = require("../../utils/jwt.util");
 

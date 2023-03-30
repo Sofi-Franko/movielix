@@ -1,4 +1,4 @@
-const {sequelize, Movie, Actor} = require("../../models");
+const {sequelize, Movie, Actor} = require("../../db");
 const {QueryTypes, Op} = require("sequelize");
 
 module.exports = async (req, res) => {
@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
         where: actorFilter
       }],
       where: filter,
-      order: [[sort, order]],
+      order: [[sequelize.literal(`LOWER('${sort}') COLLATE NOCASE`), order]],
       limit,
       offset,
     });
@@ -48,5 +48,5 @@ const getSelectByActorNameOrMovieTitleQuery = (sort, order) => `SELECT DISTINCT 
                 LEFT JOIN "MovieActor" ON "Movies"."id" = "MovieActor"."movieId"
                 LEFT JOIN "Actors" ON "MovieActor"."actorId" = "Actors"."id"
                 WHERE "title" LIKE :search OR "name" LIKE :search
-                ORDER BY ${sort} ${order}
+                ORDER BY LOWER('${sort}') COLLATE NOCASE ${order}
                 LIMIT :limit OFFSET :offset;`

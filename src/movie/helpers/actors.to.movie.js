@@ -1,4 +1,4 @@
-const {Actor} = require("../../models");
+const {Actor} = require("../../db");
 
 const getActorsToBeAddedToTheMovie = async (actors) => {
   let existedActors = await Actor.findAndCountAll({where: {name: actors}})

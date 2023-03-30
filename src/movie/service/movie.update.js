@@ -1,4 +1,4 @@
-const {Movie, Actor} = require("../../models");
+const {Movie, Actor} = require("../../db");
 const {getActorsToBeAddedToTheMovie} = require("../helpers/actors.to.movie");
 
 module.exports = async (req, res) => {

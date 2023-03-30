@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const {sequelize} = require("./models")
+const {sequelize} = require("./db")
 
 sequelize.sync({ force: false }).then(() => console.log("db connected..."))
 

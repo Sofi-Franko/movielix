@@ -1,5 +1,5 @@
 const {response} = require("express");
-const {Actor} = require("../../models");
+const {Actor} = require("../../db");
 
 module.exports = async (req, res = response) => {
   const { name } = req.body

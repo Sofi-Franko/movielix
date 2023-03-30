@@ -7,9 +7,7 @@ module.exports = [
     .notEmpty().withMessage('Title is required')
     .isString().withMessage('Title must be string'),
   check('year')
-    .notEmpty().withMessage('Year is required')
-    .isInt().withMessage('Year field must be a number')
-    .isLength({min: 4, max: 4}).withMessage('Year must be 4 digits long'),
+    .notEmpty().withMessage('Year is required'),
   check('format')
     .notEmpty().withMessage('Format is required')
     .custom(((value) => ALLOWED_FORMATS.includes(value))).withMessage(`Format should be one of: ${ALLOWED_FORMATS.join(', ')}`),

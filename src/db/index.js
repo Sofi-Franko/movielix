@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const UserModel = require('./user.model');
-const MovieModel = require('./movie.model');
-const ActorModel = require('./actor.model');
+const UserModel = require('./models/user.model');
+const MovieModel = require('./models/movie.model');
+const ActorModel = require('./models/actor.model');
 
 const sequelize = new Sequelize('movielixdb', 'admin', '123', {
   dialect: "sqlite",
